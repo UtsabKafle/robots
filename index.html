@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consica Robots · Robotics kits students build themselves</title>
+<meta name="description" content="Consica Robots by Consica Labs: 3D-printed, snap-together robotics kits for grades 7 to 10. A modular humanoid and an EMG-driven bionic arm, programmed with blocks on an ESP32.">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="Consica Robots home">
+    <span class="logo-mark" aria-hidden="true"></span>
+    <span class="brand-text">Consica <b>Robots</b></span>
+  </a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#humanoid">Humanoid</a>
+    <a href="#bionic">Bionic Arm</a>
+    <a href="#components">Components</a>
+    <a href="#learning">For schools</a>
+    <a class="btn btn-small" href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Consica Labs · Robotics kits for grades 7–10</p>
+      <h1>Robots your students <em>build</em>, <em>snap</em> together and <em>program</em>.</h1>
+      <p class="lede">3D-printed kits with real servos, sensors and an ESP32 brain. No screws, no soldering, no code to type. Students assemble every part by hand, then bring it to life with drag-and-drop blocks.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#humanoid">Meet the Humanoid</a>
+        <a class="btn btn-ghost" href="#bionic">See the Bionic Arm</a>
+      </div>
+      <ul class="hero-facts">
+        <li><b>2</b><span>kits</span></li>
+        <li><b>0</b><span>screws</span></li>
+        <li><b>ESP32</b><span>brain in both</span></li>
+        <li><b>Blocks</b><span>not code</span></li>
+      </ul>
+    </div>
+    <div class="hero-stage">
+      <div class="viewer" id="hero-viewer" aria-label="3D model of the Consica humanoid and bionic arm, rotating"></div>
+      <p class="stage-caption">Live 3D from our CAD files · drag to rotate</p>
+    </div>
+  </section>
+
+  <!-- ============ HUMANOID ============ -->
+  <section class="product" id="humanoid">
+    <div class="section-head">
+      <p class="eyebrow">Kit 01</p>
+      <h2>Humanoid Learning Kit</h2>
+      <p class="section-lede">A 35 cm robot in five snap-together modules. Each module is a lesson on its own: program the head, then an arm, then make it walk or drive.</p>
+    </div>
+
+    <div class="assembly">
+      <div class="assembly-stage">
+        <div class="viewer tall" id="humanoid-viewer" aria-label="Interactive 3D assembly of the humanoid robot"></div>
+        <div class="stage-tools">
+          <div class="seg" role="group" aria-label="Leg variant">
+            <button class="seg-btn is-on" data-variant="walk">Walking legs</button>
+            <button class="seg-btn" data-variant="wheel">Wheeled legs</button>
+          </div>
+          <button class="tool-btn" data-xray aria-pressed="false">See inside</button>
+        </div>
+      </div>
+
+      <div class="assembly-panel">
+        <div class="player">
+          <button class="play" data-play aria-label="Play assembly"><span class="i-play"></span></button>
+          <input type="range" class="scrub" data-scrub min="0" max="1000" value="0" aria-label="Assembly progress">
+        </div>
+        <ol class="steps" data-steps></ol>
+      </div>
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec"><span>Height</span><b>~355 mm</b></div>
+      <div class="spec"><span>Torso</span><b>105 × 64 × 122 mm</b></div>
+      <div class="spec"><span>Walking version</span><b>11 servos</b></div>
+      <div class="spec"><span>Wheeled version</span><b>9 servos + 2 TT motors</b></div>
+      <div class="spec"><span>Joins</span><b>Dovetails, clips, latches</b></div>
+      <div class="spec"><span>Power</span><b>2 × 18650, 6 V servo rail</b></div>
+    </div>
+
+    <div class="module-cards">
+      <article class="card">
+        <h3>Head</h3>
+        <p>An SG90 servo turns the head left and right. The HC-SR04 ultrasonic sensor is the face: its two round transducers are the eyes, and they measure how far away things are.</p>
+      </article>
+      <article class="card">
+        <h3>Torso</h3>
+        <p>The brain lives here: ESP32, PCA9685 servo driver, L298N motor driver, a 6 V regulator and the battery. Wires run inside, out of sight. A USB window lets students plug in without opening it.</p>
+      </article>
+      <article class="card">
+        <h3>Arms</h3>
+        <p>A shoulder and an elbow servo per arm, both hidden in the upper arm. Hands swap in seconds: a punching fist on one side, a blocking guard on the other.</p>
+      </article>
+      <article class="card">
+        <h3>Legs, two ways</h3>
+        <p>Walking legs have hip, knee and ankle servos and wide feet. Wheeled legs keep the same thigh but end in a TT gear motor and a 66 mm wheel. Swap one pair for the other in a minute.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ BIONIC ============ -->
+  <section class="product product-alt" id="bionic">
+    <div class="section-head">
+      <p class="eyebrow">Kit 02</p>
+      <h2>Bionic Arm Kit</h2>
+      <p class="section-lede">A three-finger gripper worn on the forearm. Squeeze your own muscle and the robot hand closes. Students learn how prosthetic hands read the body.</p>
+    </div>
+
+    <div class="assembly">
+      <div class="assembly-stage">
+        <div class="viewer tall" id="bionic-viewer" aria-label="Interactive 3D assembly of the bionic arm"></div>
+        <div class="stage-tools">
+          <button class="tool-btn" data-grip aria-pressed="false">Grip</button>
+          <button class="tool-btn" data-xray aria-pressed="false">See inside</button>
+        </div>
+      </div>
+      <div class="assembly-panel">
+        <div class="player">
+          <button class="play" data-play aria-label="Play assembly"><span class="i-play"></span></button>
+          <input type="range" class="scrub" data-scrub min="0" max="1000" value="0" aria-label="Assembly progress">
+        </div>
+        <ol class="steps" data-steps></ol>
+      </div>
+    </div>
+
+    <div class="pipeline" aria-label="How the bionic arm works">
+      <div class="pipe-step"><span class="pipe-n">1</span><b>Muscle</b><p>EMG pads on the forearm pick up the tiny electrical signal when a muscle tightens.</p></div>
+      <div class="pipe-step"><span class="pipe-n">2</span><b>ESP32</b><p>Smooths the signal and decides: is the student squeezing?</p></div>
+      <div class="pipe-step"><span class="pipe-n">3</span><b>Servo + spool</b><p>Each SG90 winds a fishing-line tendon onto a spool.</p></div>
+      <div class="pipe-step"><span class="pipe-n">4</span><b>Fingers curl</b><p>The tendon pulls the finger closed. An elastic cord opens it again.</p></div>
+      <div class="pipe-step loop"><span class="pipe-n">5</span><b>Touch</b><p>FSR pads in the fingertips feel the grip, so it can hold a paper cup without crushing it.</p></div>
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec"><span>Fingers</span><b>2 + thumb</b></div>
+      <div class="spec"><span>Servo box</span><b>141 × 68 × 48 mm</b></div>
+      <div class="spec"><span>Actuators</span><b>3 × SG90</b></div>
+      <div class="spec"><span>Sensors</span><b>EMG + 3 × FSR 402</b></div>
+      <div class="spec"><span>Tendons</span><b>Braided fishing line</b></div>
+      <div class="spec"><span>Hinges</span><b>1.75 mm filament pins</b></div>
+    </div>
+
+    <div class="module-cards three">
+      <article class="card"><h3>Lesson 1 · Signals</h3><p>Watch the raw muscle signal, then smooth it with a moving average and pick a threshold.</p></article>
+      <article class="card"><h3>Lesson 2 · Mechanics</h3><p>Route tendons, feel friction, and see how spool size changes speed and force.</p></article>
+      <article class="card"><h3>Lesson 3 · Feedback</h3><p>Close the loop: let the fingertip sensors stop the grip at just the right force.</p></article>
+    </div>
+  </section>
+
+  <!-- ============ COMPONENTS ============ -->
+  <section class="components" id="components">
+    <div class="section-head">
+      <p class="eyebrow">Inside the kits</p>
+      <h2>Real components, not toys</h2>
+      <p class="section-lede">Every kit uses the same parts engineers use. Pick one to spin it around in 3D.</p>
+    </div>
+    <div class="comp-layout">
+      <div class="comp-list" role="listbox" aria-label="Components" data-comp-list></div>
+      <div class="comp-view">
+        <div class="viewer" id="comp-viewer" aria-label="3D model of the selected component"></div>
+        <div class="comp-info" data-comp-info></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEARNING ============ -->
+  <section class="learning" id="learning">
+    <div class="section-head">
+      <p class="eyebrow">Built for classrooms</p>
+      <h2>Made so a group of <span class="nowrap">13-year-olds</span> can build it</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="feature"><span class="f-ico">◧</span><h3>Snap-fit, no screws</h3><p>Dovetails, clips and latches hold everything. No screwdrivers, nothing to strip, nothing to lose.</p></article>
+      <article class="feature"><span class="f-ico">⌗</span><h3>Block programming</h3><p>Students program the ESP32 with Consica's drag-and-drop block editor. No syntax errors on day one.</p></article>
+      <article class="feature"><span class="f-ico">◫</span><h3>Modular by design</h3><p>Every module plugs into the same socket standard, so students can design and print their own parts.</p></article>
+      <article class="feature"><span class="f-ico">⌁</span><h3>Hidden wiring</h3><p>Wires run through hollow necks and channels inside the parts. The robot looks finished, not messy.</p></article>
+      <article class="feature"><span class="f-ico">◎</span><h3>Made for groups</h3><p>One kit per group. Each student can own a module, then the team brings them together.</p></article>
+      <article class="feature"><span class="f-ico">⎔</span><h3>Printable anywhere</h3><p>All structural parts are 3D-printed, so a broken piece is a reprint, not a reorder.</p></article>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="contact-card">
+      <div>
+        <p class="eyebrow light">Bring Consica Robots to your school</p>
+        <h2>Let's build the first one together.</h2>
+        <p>We run the kits as part of Consica Academy's robotics program, with lesson plans, training for teachers and support in the lab.</p>
+      </div>
+      <div class="contact-links">
+        <a class="btn btn-light" href="mailto:consicalabs@gmail.com">consicalabs@gmail.com</a>
+        <a class="btn btn-ghost-light" href="tel:+9779816087568">+977 981-6087568</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="brand">
+    <span class="logo-mark" aria-hidden="true"></span>
+    <span class="brand-text">Consica <b>Labs</b></span>
+  </div>
+  <p>Innovation That Creates Impact · Jhapa, Nepal</p>
+  <p class="muted">3D models shown are the actual v1 CAD designs of each kit.</p>
+</footer>
+
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/vendor/OrbitControls.js"></script>
+<script src="assets/vendor/RoomEnvironment.js"></script>
+<script src="assets/models.js"></script>
+<script src="assets/components.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
